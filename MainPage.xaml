@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:model="using:CapabilityChecker"
-    mc:Ignorable="d"
+    mc:Ignorable="d"    
     >
 
     <Page.Resources>
@@ -29,19 +29,19 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
         <StackPanel Orientation="Horizontal"
                     Grid.Row="0"
+                    Margin="12"
                     >
             <Button Content="LoadThis" Click="LoadThisClicked" />
             <ContentPresenter ContentTemplate="{StaticResource RemoteSystemModelDisplay}" 
-                              Content="{x:Bind _model.ThisRemoteSystem, Mode=OneWay}"
-                              Visibility="{x:Bind CollapsedIfNull(_model.ThisRemoteSystem), Mode=OneWay}"
+                              Content="{x:Bind Model.ThisRemoteSystem, Mode=OneWay}"
+                              Visibility="{x:Bind CollapsedIfNull(Model.ThisRemoteSystem), Mode=OneWay}"
                               />
-        </StackPanel>
-        
+        </StackPanel>        
         <ListView Grid.Row="1"
-                  ItemsSource="{x:Bind _model.RemoteSystemModels}"
-                  ItemTemplate="{StaticResource RemoteSystemModelDisplay}" />
+                  ItemsSource="{x:Bind Model.RemoteSystemModels}"
+                  ItemTemplate="{StaticResource RemoteSystemModelDisplay}"
+                  />
     </Grid>
 </Page>

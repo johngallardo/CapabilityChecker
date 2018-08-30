@@ -44,6 +44,7 @@ namespace CapabilityChecker
     public sealed partial class MainPage : Page
     {
         private PageModel _model = new PageModel();
+        public PageModel Model { get => _model; }
 
         public MainPage()
         {
