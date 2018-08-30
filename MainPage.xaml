@@ -11,9 +11,8 @@
 
     <Page.Resources>
         <ResourceDictionary>
-            <model:VisibilityFromNullableConverter x:Key="VisibilityFromNullableConverter" />
             <DataTemplate x:DataType="model:RemoteSystemModel" x:Key="RemoteSystemModelDisplay">
-                <StackPanel Margin="16" Visibility="{x:Bind Converter={StaticResource VisibilityFromNullableConverter}, Mode=OneWay}">
+                <StackPanel Margin="16" >
                     <TextBlock Text="{x:Bind Name}" />
                     <TextBlock Text="{x:Bind Kind}" />
                     <TextBlock Text="{x:Bind Id}" />
@@ -36,12 +35,13 @@
                     >
             <Button Content="LoadThis" Click="LoadThisClicked" />
             <ContentPresenter ContentTemplate="{StaticResource RemoteSystemModelDisplay}" 
-                              Content="{Binding ThisRemoteSystem}"
+                              Content="{x:Bind _model.ThisRemoteSystem, Mode=OneWay}"
+                              Visibility="{x:Bind CollapsedIfNull(_model.ThisRemoteSystem), Mode=OneWay}"
                               />
         </StackPanel>
         
         <ListView Grid.Row="1"
-                  ItemsSource="{Binding RemoteSystemModels}"
+                  ItemsSource="{x:Bind _model.RemoteSystemModels}"
                   ItemTemplate="{StaticResource RemoteSystemModelDisplay}" />
     </Grid>
 </Page>
