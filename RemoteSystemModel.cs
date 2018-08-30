@@ -58,6 +58,8 @@ namespace CapabilityChecker
 
         public string Kind { get { return _remoteSystem.Kind; } }
 
+        public string Id { get { return _remoteSystem.Id; } }
+
         private CapabilityState _isAppServiceCapable = CapabilityState.NotChecked;
         public CapabilityState IsAppServiceCapable
         {

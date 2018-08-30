@@ -16,6 +16,7 @@
                 <StackPanel Margin="16" Visibility="{x:Bind Converter={StaticResource VisibilityFromNullableConverter}, Mode=OneWay}">
                     <TextBlock Text="{x:Bind Name}" />
                     <TextBlock Text="{x:Bind Kind}" />
+                    <TextBlock Text="{x:Bind Id}" />
                     <TextBlock Text="{x:Bind IsAppServiceCapable, Mode=OneWay}" /> 
                     <Button Content="Check AppService Capability" Click="Button_Click" />
                     <Button Content="Launch Site" Click="Button_Click_1" />
