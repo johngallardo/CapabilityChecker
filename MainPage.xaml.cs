@@ -47,8 +47,12 @@ namespace CapabilityChecker
 
         public MainPage()
         {
-            this.DataContext = _model;
             this.InitializeComponent();
+        }
+
+        Visibility CollapsedIfNull(object o)
+        {
+            return o == null ? Visibility.Collapsed : Visibility.Visible;
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
